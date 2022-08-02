@@ -4,11 +4,11 @@ import { Navbar } from "./frontend/components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "./frontend/context";
-import { availableRoutes } from "./frontend/routes";
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import { authActions } from "./frontend/store/authSlice";
 import { useDispatch } from "react-redux";
+import AvailableRoutes from "./frontend/routes";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -41,7 +41,7 @@ function App() {
     <div className="App" app-theme={theme}>
       <ScrollToTop />
       <Navbar />
-      {availableRoutes}
+      <AvailableRoutes />
       <ToastContainer style={{ fontWeight: "500", fontSize: "1.15rem" }} />
     </div>
   );

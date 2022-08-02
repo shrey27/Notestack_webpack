@@ -5,7 +5,7 @@ const webpackConfig = {
   entry: { index: "./src/index.js" },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "vanillaJS app",
+      title: "NoteStack",
       template: path.resolve(__dirname, "src", "index.html"),
     }),
   ],
