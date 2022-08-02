@@ -1,9 +1,10 @@
-import './label.css';
-import { Fragment, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updatePostHandler } from '../../actions/noteActions';
-import { Loader, PageTemplate, EditNoteModal } from '../../components';
-import { Notes } from '../homepage/Notes';
+import React from "react";
+import "./label.css";
+import { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updatePostHandler } from "../../actions/noteActions";
+import { Loader, PageTemplate, EditNoteModal } from "../../components";
+import { Notes } from "../homepage/Notes";
 
 export default function Label() {
   const [usernotes, setuserNotes] = useState([]);
@@ -17,7 +18,7 @@ export default function Label() {
       ?.filter((item) => item.label)
       .filter((item) => !item.archive)
       .filter((item) => !item.trash);
-      
+
     if (search) {
       temp = temp.filter((item) => item.label === search);
     }
@@ -29,7 +30,7 @@ export default function Label() {
     dispatch(
       updatePostHandler({
         uid: user?.uid,
-        note: { ...user, notes: temp }
+        note: { ...user, notes: temp },
       })
     );
   };
@@ -44,14 +45,14 @@ export default function Label() {
       dispatch(
         updatePostHandler({
           uid: user?.uid,
-          note: { ...user, notes: temp }
+          note: { ...user, notes: temp },
         })
       );
     } else {
       dispatch(
         updatePostHandler({
           uid: user?.uid,
-          note: { ...user, notes: [...usernotes, newNote] }
+          note: { ...user, notes: [...usernotes, newNote] },
         })
       );
     }
@@ -67,7 +68,7 @@ export default function Label() {
         />
       )}
       <PageTemplate>
-        {authLoader === 'pending' ? (
+        {authLoader === "pending" ? (
           <Loader />
         ) : (
           <Notes

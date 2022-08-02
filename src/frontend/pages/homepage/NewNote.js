@@ -1,13 +1,14 @@
-import './newnote.css';
-import { Fragment, useState } from 'react';
-import { colors } from '../../utility/constants';
-import { v4 as uuid } from 'uuid';
+import React from "react";
+import "./newnote.css";
+import { Fragment, useState } from "react";
+import { colors } from "../../utility/constants";
+import { v4 as uuid } from "uuid";
 
 const defaultValue = {
-  title: '',
-  description: '',
-  color: '#f3f3f3',
-  label: ''
+  title: "",
+  description: "",
+  color: "#f3f3f3",
+  label: "",
 };
 
 export function NewNote({ handleNewNote }) {
@@ -31,48 +32,48 @@ export function NewNote({ handleNewNote }) {
   return (
     <Fragment>
       {!showEditor ? (
-        <div className='newnote box-shadow' onClick={() => setShowEditor(true)}>
+        <div className="newnote box-shadow" onClick={() => setShowEditor(true)}>
           <span>Create a note</span>
           <span>
-            <i className='fa-solid fa-plus'></i>
+            <i className="fa-solid fa-plus"></i>
           </span>
         </div>
       ) : (
         <div>
           <form
             onSubmit={handleSubmit}
-            className='note'
+            className="note"
             style={{
-              backgroundColor: form?.color
+              backgroundColor: form?.color,
             }}
           >
             <input
-              type='text'
-              className='note__title'
-              placeholder='Enter Title'
-              name='title'
+              type="text"
+              className="note__title"
+              placeholder="Enter Title"
+              name="title"
               value={form?.title}
               onChange={handleChange}
             />
             <textarea
-              className='note__textarea'
-              placeholder='Enter Description'
-              name='description'
+              className="note__textarea"
+              placeholder="Enter Description"
+              name="description"
               value={form?.description}
               onChange={handleChange}
             ></textarea>
             <input
-              type='text'
-              className='note__label'
-              placeholder='Enter Label'
-              name='label'
+              type="text"
+              className="note__label"
+              placeholder="Enter Label"
+              name="label"
               value={form?.label}
               onChange={handleChange}
             />
-            <div className='note__buttons'>
-              <section className='color__ctr'>
-                <div className='color__tab'></div>
-                <div className='colors'>
+            <div className="note__buttons">
+              <section className="color__ctr">
+                <div className="color__tab"></div>
+                <div className="colors">
                   {colors.map((e) => {
                     return (
                       <span
@@ -87,12 +88,12 @@ export function NewNote({ handleNewNote }) {
               <button
                 className={`btn ${
                   form?.title && form?.description
-                    ? 'btn--auth--solid'
-                    : 'btn--cancel--solid'
+                    ? "btn--auth--solid"
+                    : "btn--cancel--solid"
                 } btn--note`}
-                type='submit'
+                type="submit"
               >
-                {form?.title && form?.description ? 'Create' : 'Close'}
+                {form?.title && form?.description ? "Create" : "Close"}
               </button>
             </div>
           </form>

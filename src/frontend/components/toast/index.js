@@ -1,9 +1,10 @@
-import { Slide, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import { Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ToastMessage = (msg, type, theme) =>
   toast(msg, {
-    position: 'bottom-center',
+    position: "bottom-center",
     autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
@@ -11,5 +12,5 @@ export const ToastMessage = (msg, type, theme) =>
     draggable: true,
     type: type,
     transition: Slide,
-    theme
+    theme,
   });

@@ -1,12 +1,12 @@
-import { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext } from "react";
 
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark");
 
   const switchTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
 
@@ -14,7 +14,7 @@ const ThemeProvider = ({ children }) => {
     <ThemeContext.Provider
       value={{
         theme,
-        switchTheme
+        switchTheme,
       }}
     >
       {children}

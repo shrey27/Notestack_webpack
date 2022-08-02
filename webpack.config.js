@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const webpackConfig = {
-  entry: path.resolve(__dirname, "src", "index.js"),
+  entry: { index: "./src/index.js" },
   plugins: [
     new HtmlWebpackPlugin({
       title: "vanillaJS app",

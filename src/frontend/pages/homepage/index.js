@@ -1,10 +1,11 @@
-import './homepage.css';
-import { Fragment, useState, useEffect } from 'react';
-import { PageTemplate, EditNoteModal, Loader } from '../../components';
-import { NewNote } from './NewNote';
-import { Notes } from './Notes';
-import { useSelector, useDispatch } from 'react-redux';
-import { updatePostHandler } from '../../actions/noteActions';
+import React from "react";
+import "./homepage.css";
+import { Fragment, useState, useEffect } from "react";
+import { PageTemplate, EditNoteModal, Loader } from "../../components";
+import { NewNote } from "./NewNote";
+import { Notes } from "./Notes";
+import { useSelector, useDispatch } from "react-redux";
+import { updatePostHandler } from "../../actions/noteActions";
 
 export default function Homepage() {
   const [usernotes, setuserNotes] = useState([]);
@@ -23,7 +24,7 @@ export default function Homepage() {
     dispatch(
       updatePostHandler({
         uid: user?.uid,
-        note: { ...user, notes: temp }
+        note: { ...user, notes: temp },
       })
     );
   };
@@ -38,14 +39,14 @@ export default function Homepage() {
       dispatch(
         updatePostHandler({
           uid: user?.uid,
-          note: { ...user, notes: temp }
+          note: { ...user, notes: temp },
         })
       );
     } else {
       dispatch(
         updatePostHandler({
           uid: user?.uid,
-          note: { ...user, notes: [...usernotes, newNote] }
+          note: { ...user, notes: [...usernotes, newNote] },
         })
       );
     }
@@ -61,9 +62,9 @@ export default function Homepage() {
         />
       )}
       <PageTemplate>
-        <div className={`${authLoader === 'pending' && 'pointerEvents'}`}>
+        <div className={`${authLoader === "pending" && "pointerEvents"}`}>
           <NewNote handleNewNote={handleNewNote} />
-          {authLoader === 'pending' ? (
+          {authLoader === "pending" ? (
             <Loader />
           ) : (
             <Notes

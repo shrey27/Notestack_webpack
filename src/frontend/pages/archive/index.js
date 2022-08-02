@@ -1,9 +1,10 @@
-import './archive.css';
-import { Fragment, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updatePostHandler } from '../../actions/noteActions';
-import { Loader, PageTemplate } from '../../components';
-import { Notes } from '../homepage/Notes';
+import React from "react";
+import "./archive.css";
+import { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updatePostHandler } from "../../actions/noteActions";
+import { Loader, PageTemplate } from "../../components";
+import { Notes } from "../homepage/Notes";
 
 export default function Archive() {
   const [archiveNotes, setArchiveNotes] = useState([]);
@@ -19,7 +20,7 @@ export default function Archive() {
     dispatch(
       updatePostHandler({
         uid: user?.uid,
-        note: { ...user, notes: temp }
+        note: { ...user, notes: temp },
       })
     );
   };
@@ -34,13 +35,10 @@ export default function Archive() {
   return (
     <Fragment>
       <PageTemplate>
-        {authLoader === 'pending' ? (
+        {authLoader === "pending" ? (
           <Loader />
         ) : (
-          <Notes
-            notes={archiveNotes}
-            handleNewNote={handleNewRestore}
-          />
+          <Notes notes={archiveNotes} handleNewNote={handleNewRestore} />
         )}
       </PageTemplate>
     </Fragment>

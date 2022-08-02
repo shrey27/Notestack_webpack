@@ -1,4 +1,5 @@
 import './pomodoro.css';
+import React from "react";
 import { Fragment, useState, useEffect } from 'react';
 import { Loader } from '../../components';
 import Newtask from './Newtask';

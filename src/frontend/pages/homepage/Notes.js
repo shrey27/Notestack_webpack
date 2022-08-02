@@ -1,15 +1,16 @@
-import './newnote.css';
-import { Fragment } from 'react';
-import { useLocation } from 'react-router';
-import { ARCHIVE, HOMEPAGE, LABEL, TRASH } from '../../routes';
-import { Empty } from '../../components';
+import React from "react";
+import "./newnote.css";
+import { Fragment } from "react";
+import { useLocation } from "react-router";
+import { ARCHIVE, HOMEPAGE, LABEL, TRASH } from "../../routes";
+import { Empty } from "../../components";
 
 export function Notes({
   notes,
   setEditModal,
   setFormObject,
   handleNewNote,
-  handleDeleteNote
+  handleDeleteNote,
 }) {
   const { pathname } = useLocation();
   const handleEdit = (note) => {
@@ -49,31 +50,31 @@ export function Notes({
       ) : (
         <>
           {notes?.some((item) => item.pinned) && (
-            <h1 className='pinned'>Pinned Notes</h1>
+            <h1 className="pinned">Pinned Notes</h1>
           )}
           {/* Pinned notes */}
-          <div className='notes'>
+          <div className="notes">
             {notes
               ?.filter((item) => item.pinned)
               ?.map((note, index) => {
                 return (
                   <div
-                    className='singlenote'
+                    className="singlenote"
                     key={note.id}
                     style={{ backgroundColor: note.color }}
                   >
                     <h1>{note.title}</h1>
                     <p>{note.description}</p>
                     {note.label && <h2>{note.label}</h2>}
-                    <section className='note__section'>
+                    <section className="note__section">
                       {pathname === HOMEPAGE && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handlePinned.bind(this, note)}
                         >
                           <i
                             className={`fa-solid fa-thumbtack ${
-                              note.pinned && 'icon__pinned'
+                              note.pinned && "icon__pinned"
                             }`}
                           ></i>
                         </button>
@@ -82,36 +83,36 @@ export function Notes({
                         pathname === ARCHIVE ||
                         pathname === LABEL) && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handleArchive.bind(this, note)}
                         >
-                          <i className='fa-solid fa-box-archive'></i>
+                          <i className="fa-solid fa-box-archive"></i>
                         </button>
                       )}
                       {(pathname === HOMEPAGE ||
                         pathname === TRASH ||
                         pathname === LABEL) && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handleDelete.bind(this, note)}
                         >
-                          <i className='fa-solid fa-trash'></i>
+                          <i className="fa-solid fa-trash"></i>
                         </button>
                       )}
                       {pathname === TRASH && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handleRestoreFromTrash.bind(this, note)}
                         >
-                          <i className='fa-solid fa-arrow-rotate-left'></i>
+                          <i className="fa-solid fa-arrow-rotate-left"></i>
                         </button>
                       )}
                       {(pathname === HOMEPAGE || pathname === LABEL) && (
                         <button
-                          className='btn--icon btn--rt'
+                          className="btn--icon btn--rt"
                           onClick={handleEdit.bind(this, note)}
                         >
-                          <i className='fa-solid fa-pencil'></i>
+                          <i className="fa-solid fa-pencil"></i>
                         </button>
                       )}
                     </section>
@@ -120,62 +121,62 @@ export function Notes({
               })}
           </div>
           {/* Unpinned notes */}
-          <div className='notes'>
+          <div className="notes">
             {notes
               ?.filter((item) => !item.pinned)
               ?.map((note, index) => {
                 return (
                   <div
-                    className='singlenote'
+                    className="singlenote"
                     key={note.id}
                     style={{ backgroundColor: note.color }}
                   >
                     <h1>{note.title}</h1>
                     <p>{note.description}</p>
                     {note.label && <h2>{note.label}</h2>}
-                    <section className='note__section'>
+                    <section className="note__section">
                       {pathname === HOMEPAGE && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handlePinned.bind(this, note)}
                         >
-                          <i className='fa-solid fa-thumbtack'></i>
+                          <i className="fa-solid fa-thumbtack"></i>
                         </button>
                       )}
                       {(pathname === HOMEPAGE ||
                         pathname === ARCHIVE ||
                         pathname === LABEL) && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handleArchive.bind(this, note)}
                         >
-                          <i className='fa-solid fa-box-archive'></i>
+                          <i className="fa-solid fa-box-archive"></i>
                         </button>
                       )}
                       {(pathname === HOMEPAGE ||
                         pathname === TRASH ||
                         pathname === LABEL) && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handleDelete.bind(this, note)}
                         >
-                          <i className='fa-solid fa-trash'></i>
+                          <i className="fa-solid fa-trash"></i>
                         </button>
                       )}
                       {pathname === TRASH && (
                         <button
-                          className='btn--icon'
+                          className="btn--icon"
                           onClick={handleRestoreFromTrash.bind(this, note)}
                         >
-                          <i className='fa-solid fa-arrow-rotate-left'></i>
+                          <i className="fa-solid fa-arrow-rotate-left"></i>
                         </button>
                       )}
                       {(pathname === HOMEPAGE || pathname === LABEL) && (
                         <button
-                          className='btn--icon btn--rt'
+                          className="btn--icon btn--rt"
                           onClick={handleEdit.bind(this, note)}
                         >
-                          <i className='fa-solid fa-pencil'></i>
+                          <i className="fa-solid fa-pencil"></i>
                         </button>
                       )}
                     </section>

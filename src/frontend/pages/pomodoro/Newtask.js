@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react';
+import React from "react";
 import './pomodoro.css';
 import { v4 as uuid } from 'uuid';
 
