@@ -13,7 +13,7 @@ const webpackConfig = {
     }),
     new Dotenv(),
   ],
-  performance: { hints: false },
+  // performance: { hints: false },
   output: {
     filename: "[name].[contenthash].bundle.js",
     path: path.resolve(__dirname, "dist"),
