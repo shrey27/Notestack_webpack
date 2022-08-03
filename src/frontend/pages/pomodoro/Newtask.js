@@ -1,13 +1,13 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState } from "react";
 import React from "react";
-import './pomodoro.css';
-import { v4 as uuid } from 'uuid';
+import "./pomodoro.css";
+import { v4 as uuid } from "uuid";
 
 const defaultValue = {
-  title: '',
-  description: '',
+  title: "",
+  description: "",
   time: 0,
-  completed: false
+  completed: false,
 };
 
 export default function Newtask({ handleNewTask }) {
@@ -31,109 +31,109 @@ export default function Newtask({ handleNewTask }) {
   return (
     <Fragment>
       {!showEditor ? (
-        <div className='newTask box-shadow' onClick={() => setShowEditor(true)}>
+        <div className="newTask box-shadow" onClick={() => setShowEditor(true)}>
           <span>Create a Task</span>
           <span>
-            <i className='fa-solid fa-plus'></i>
+            <i className="fa-solid fa-plus"></i>
           </span>
         </div>
       ) : (
         <div>
-          <form onSubmit={handleSubmit} className='newTask_note'>
+          <form onSubmit={handleSubmit} className="newTask_note">
             <input
-              type='text'
-              className='newTask__title'
-              placeholder='Enter Title'
-              name='title'
+              type="text"
+              className="newTask__title"
+              placeholder="Enter Title"
+              name="title"
               value={form?.title}
               onChange={handleChange}
             />
             <textarea
-              className='newTask__textarea'
-              placeholder='Enter Description'
-              name='description'
+              className="newTask__textarea"
+              placeholder="Enter Description"
+              name="description"
               value={form?.description}
               onChange={handleChange}
             ></textarea>
-            <div className='label__ctr'>
+            <div className="label__ctr">
               <label
-                className={`label_time ${form?.time === '2' ? 'checked' : ''}`}
+                className={`label_time ${form?.time === "2" ? "checked" : ""}`}
               >
                 2 mins
                 <input
-                  type='radio'
-                  className='note__radio'
-                  name='time'
-                  checked={form?.time === '2'}
+                  type="radio"
+                  className="note__radio"
+                  name="time"
+                  checked={form?.time === "2"}
                   value={2}
                   onChange={handleChange}
                 />
               </label>
               <label
-                className={`label_time ${form?.time === '30' ? 'checked' : ''}`}
+                className={`label_time ${form?.time === "30" ? "checked" : ""}`}
               >
                 30 mins
                 <input
-                  type='radio'
-                  className='note__radio'
-                  name='time'
-                  checked={form?.time === '30'}
+                  type="radio"
+                  className="note__radio"
+                  name="time"
+                  checked={form?.time === "30"}
                   value={30}
                   onChange={handleChange}
                 />
               </label>
               <label
-                className={`label_time ${form?.time === '60' ? 'checked' : ''}`}
+                className={`label_time ${form?.time === "60" ? "checked" : ""}`}
               >
                 60 mins
                 <input
-                  type='radio'
-                  className='note__radio'
-                  name='time'
-                  checked={form?.time === '60'}
+                  type="radio"
+                  className="note__radio"
+                  name="time"
+                  checked={form?.time === "60"}
                   value={60}
                   onChange={handleChange}
                 />
               </label>
               <label
-                className={`label_time ${form?.time === '90' ? 'checked' : ''}`}
+                className={`label_time ${form?.time === "90" ? "checked" : ""}`}
               >
                 90 mins
                 <input
-                  type='radio'
-                  className='note__radio'
-                  name='time'
-                  checked={form?.time === '90'}
+                  type="radio"
+                  className="note__radio"
+                  name="time"
+                  checked={form?.time === "90"}
                   value={90}
                   onChange={handleChange}
                 />
               </label>
               <label
                 className={`label_time ${
-                  form?.time === '120' ? 'checked' : ''
+                  form?.time === "120" ? "checked" : ""
                 }`}
               >
                 120 mins
                 <input
-                  type='radio'
-                  name='time'
-                  className='note__radio'
-                  checked={form?.time === '120'}
+                  type="radio"
+                  name="time"
+                  className="note__radio"
+                  checked={form?.time === "120"}
                   value={120}
                   onChange={handleChange}
                 />
               </label>
             </div>
-            <div className='note__buttons'>
+            <div className="note__buttons">
               <button
                 className={`btn ${
                   form?.title && form?.description && form?.time
-                    ? 'btn--auth--solid'
-                    : 'btn--cancel--solid'
+                    ? "btn--auth--solid"
+                    : "btn--cancel--solid"
                 } btn--note`}
-                type='submit'
+                type="submit"
               >
-                {form?.title && form?.description ? 'Create' : 'Close'}
+                {form?.title && form?.description ? "Create" : "Close"}
               </button>
             </div>
           </form>

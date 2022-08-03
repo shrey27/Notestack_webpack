@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState } from 'react';
-import React from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { updatePostHandler } from '../../actions/noteActions';
-import { Loader, PageTemplate } from '../../components';
-import { Notes } from '../homepage/Notes';
-import './trash.css';
+import React, { Fragment, useEffect, useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { updatePostHandler } from "../../actions/noteActions";
+import { Loader, PageTemplate } from "../../components";
+import { Notes } from "../homepage/Notes";
+import "./trash.css";
 
 export default function Trash() {
   const [trashNotes, setTrashNotes] = useState([]);
@@ -16,10 +16,10 @@ export default function Trash() {
     dispatch(
       updatePostHandler({
         uid: user?.uid,
-        note: { ...user, notes: temp }
+        note: { ...user, notes: temp },
       })
     );
-    setTrashNotes(temp)
+    setTrashNotes(temp);
   };
 
   const handleNewRestore = (newNote) => {
@@ -31,7 +31,7 @@ export default function Trash() {
     dispatch(
       updatePostHandler({
         uid: user?.uid,
-        note: { ...user, notes: temp }
+        note: { ...user, notes: temp },
       })
     );
   };
@@ -46,7 +46,7 @@ export default function Trash() {
   return (
     <Fragment>
       <PageTemplate>
-        {authLoader === 'pending' ? (
+        {authLoader === "pending" ? (
           <Loader />
         ) : (
           <Notes

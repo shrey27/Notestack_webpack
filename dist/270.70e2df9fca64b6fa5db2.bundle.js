@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpure_js_app_starter=self.webpackChunkpure_js_app_starter||[]).push([[270],{2270:function(e,t,r){r.r(t),r.d(t,{default:function(){return l}});var a=r(7294),n=r(6974),u=r(8704);function l(){var e=localStorage.getItem("token"),t=(0,n.TH)();return a.createElement(a.Fragment,null,e?a.createElement(n.j3,null):a.createElement(n.Fg,{to:u.OT,state:{from:t},replace:!0}))}}}]);
-//# sourceMappingURL=270.70e2df9fca64b6fa5db2.bundle.js.map

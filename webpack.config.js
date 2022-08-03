@@ -4,7 +4,7 @@ const Dotenv = require("dotenv-webpack");
 
 const webpackConfig = {
   entry: {
-    index: "./src/index.js"
+    index: "./src/index.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -13,10 +13,17 @@ const webpackConfig = {
     }),
     new Dotenv(),
   ],
+  // performance: { hints: false },
   output: {
     filename: "[name].[contenthash].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+  },
+  devServer: {
+    static: path.resolve(__dirname, "dist"),
+    port: 8080,
+    open: true,
+    hot: true,
   },
   optimization: {
     splitChunks: {
@@ -39,7 +46,7 @@ const webpackConfig = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
       },
@@ -54,11 +61,7 @@ const webpackConfig = {
     ],
   },
   mode: "production",
-  devtool: "source-map",
-  devServer: {
-    contentBase: "./dist",
-    watchContentBase: true,
-  },
+  devtool: "inline-source-map",
 };
 
 module.exports = webpackConfig;

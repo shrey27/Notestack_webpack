@@ -1,8 +1,8 @@
 import React from "react";
 import "./notfound.css";
-import pic from "../../../../assets/404.gif";
 import { HOMEPAGE } from "../../routes";
 import { Link } from "react-router-dom";
+const pic = React.lazy(() => import("../../../../assets/404.gif"));
 
 export default function NotFound() {
   return (
