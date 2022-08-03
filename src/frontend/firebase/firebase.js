@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  appId: "1:436647397068:web:14e2d54344bcfe86a2a469",
-  messagingSenderId: "436647397068",
-  storageBucket: "neogcamp-ce308.appspot.com",
-  projectId: "neogcamp-ce308",
-  authDomain: "neogcamp-ce308.firebaseapp.com",
-  apiKey: "AIzaSyDsUx8D0hKtJWaFuJcCCfX8l8tkaLV66dE",
+  apiKey: process.env.REACT_APP_API_KEY,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase

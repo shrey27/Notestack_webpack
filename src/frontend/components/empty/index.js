@@ -1,6 +1,6 @@
 import React from "react";
 import "./Empty.css";
-import pic from "../../assets/empty.jpg";
+import pic from "../../../../assets/empty.jpg";
 
 export function Empty({ statement }) {
   return (

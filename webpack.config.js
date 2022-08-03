@@ -1,21 +1,26 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const webpackConfig = {
-  entry: { index: "./src/index.js" },
+  entry: {
+    index: "./src/index.js"
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "NoteStack",
       template: path.resolve(__dirname, "src", "index.html"),
     }),
+    new Dotenv(),
   ],
   output: {
-    filename: "[name].[contenthash].bundle.js", // <--- small change
+    filename: "[name].[contenthash].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   optimization: {
     splitChunks: {
+      chunks: "all",
       cacheGroups: {
         node_vendors: {
           name: "vendor",
@@ -49,7 +54,7 @@ const webpackConfig = {
     ],
   },
   mode: "production",
-  devtool: "inline-source-map",
+  devtool: "source-map",
   devServer: {
     contentBase: "./dist",
     watchContentBase: true,

@@ -1,6 +1,6 @@
 import React from "react";
 import "./notfound.css";
-import pic from "../../assets/404.gif";
+import pic from "../../../../assets/404.gif";
 import { HOMEPAGE } from "../../routes";
 import { Link } from "react-router-dom";
 

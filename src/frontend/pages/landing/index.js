@@ -2,7 +2,7 @@ import React from "react";
 import "./landing.css";
 import { Link } from "react-router-dom";
 import { HOMEPAGE } from "../../routes";
-import banner from "../../assets/banner.svg";
+import banner from "../../../../assets/banner.svg";
 
 export default function Landing() {
   return (
